@@ -14,7 +14,7 @@
 
 
 ## Getting Started
-> Please note that this application is still under development
+> Please note that this application is still under development and this repository does not come with the link to my Google Teachable Machine model, so please contact me at park.wongyun@gmail.com if you need access to it
 
 - To **Install Required Dependencies** :
   - **npm install**
