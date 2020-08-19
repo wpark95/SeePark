@@ -1,7 +1,7 @@
 {
   "name": "seepark",
   "version": "1.0.0",
-  "description": "Open source application which recognizes parking signs and translates them in various languages",
+  "description": "Open-source application that recognizes American parking signs and translates them for non-English speakers",
   "main": "index.js",
   "scripts": {
     "react:dev": "webpack --watch",
