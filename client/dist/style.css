@@ -1,0 +1,75 @@
+#main {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.submit-btn {
+  padding: 10px;
+  background-color: rgb(80, 100, 170);
+  color: azure;
+}
+
+/* Language */
+
+
+#language-selection {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  text-align-last: center;
+}
+
+label {
+  font-size: x-large;
+}
+
+select {
+  font-weight: bold;
+  font-size: large;
+  margin-left: 3rem;
+  height: 40px;
+  width: auto;
+}
+
+/* Image */
+
+
+#image-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#image-box {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#image-preview {
+  max-width: 360px;
+  max-height: 360px;
+}
+
+.classification-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: large;
+}
+
+/* Text */
+
+
+#translation-body {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signInfo {
+  margin-top: 40px;
+  font-size: xx-large;
+}

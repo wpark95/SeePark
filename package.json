@@ -1,0 +1,51 @@
+{
+  "name": "seepark",
+  "version": "1.0.0",
+  "description": "Open source application which recognizes parking signs and translates them in various languages",
+  "main": "index.js",
+  "scripts": {
+    "react:dev": "webpack --watch",
+    "server:dev": "nodemon ./server/server.js",
+    "seed": "node ./database/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpark95/SeePark.git"
+  },
+  "author": "Will Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpark95/SeePark/issues"
+  },
+  "homepage": "https://github.com/wpark95/SeePark#readme",
+  "dependencies": {
+    "@teachablemachine/image": "^0.8.4",
+    "@tensorflow-models/mobilenet": "^2.0.4",
+    "@tensorflow/tfjs": "^2.0.1",
+    "@tensorflow/tfjs-node": "^2.0.1",
+    "antd": "^4.5.1",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "canvas": "^2.6.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.5.0",
+    "express": "^4.17.1",
+    "formidable": "^1.2.2",
+    "get-image-data": "^5.0.0",
+    "jimp": "^0.14.0",
+    "mongoose": "^5.9.26",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
