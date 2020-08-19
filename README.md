@@ -14,15 +14,16 @@
 
 
 ## Getting Started
+> Please note that this application is still under development
 
 - To **Install Required Dependencies** :
   - **npm install**
 
 - To compile the client bundle using **Webpack** :
-  - **npm run watch**
+  - **npm run react:dev**
 
 - To start the server using **Nodemon** :
-  - **npm run server**
+  - **npm run server:dev**
     - Note: originally, the server is set to use **port 3000**
 
 
