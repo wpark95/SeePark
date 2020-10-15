@@ -8,12 +8,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLanguage: '',
+      selectedLanguage: 'SP',
       image: '',
       imageClass: '',
     };
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
+    this.postText = this.postText.bind(this);
   };
 
   handleLanguageSelection(event) {
@@ -23,7 +24,9 @@ class App extends React.Component {
   };
 
   postText() {
+    console.log('This is state', this.state);
     const { image } = this.state;
+
     axios.post('/test', image)
     .then((response) => {
       this.setState({
@@ -34,10 +37,12 @@ class App extends React.Component {
   };
 
   handleImageUpload(event) {
-    console.log(event.target.files[0])
+    console.log('Image Info', event.target.files[0])
+    // Display the selected image to the user
     this.setState({
       image: URL.createObjectURL(event.target.files[0])
     })
+    console.log(this.state);
   };
 
   render() {
