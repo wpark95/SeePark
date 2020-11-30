@@ -24,7 +24,7 @@ class Translation extends React.Component {
         <button className="submit-btn" onClick={getText}>
           {translate[selectedLanguage]}
         </button>
-        <h1>This is hard coded text. Please change this later to reflect the returned translation from the database.</h1>
+        <h1>This is hard coded text.</h1>
       </div>
     );
   }
