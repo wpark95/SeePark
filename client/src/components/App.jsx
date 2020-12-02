@@ -8,53 +8,63 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLanguage: '',
-      image: '',
-      imageClass: '',
+      selectedLanguage: 'SP',
+      imagePreivew: '',
+      imageData: '',
+      imageTranslation: '',
     };
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
+    this.fetchTranslation = this.fetchTranslation.bind(this);
   };
 
   handleLanguageSelection(event) {
     this.setState({
       selectedLanguage: event.target.value
-    })
-  };
-
-  postText() {
-    const { image } = this.state;
-    axios.post('/test', image)
-    .then((response) => {
-      this.setState({
-        imageClass: response.data.classification
-      });
-      console.log('Classification Returned :', response.data.classification);
-    })
+    });
   };
 
   handleImageUpload(event) {
-    console.log(event.target.files[0])
     this.setState({
-      image: URL.createObjectURL(event.target.files[0])
+      imageData: event.target.files[0],
+      imagePreivew: URL.createObjectURL(event.target.files[0]) // This is for displaying selected image to user
+    });
+  };
+
+
+  fetchTranslation() {
+    const { imageData } = this.state;
+    const { imagePreivew } = this.state;
+    const formData = new FormData();
+    formData.append('file', imageData);
+
+    axios.post('/api/test', formData)
+    .then(({ data }) => {
+      console.log(data[0].class);
+      this.setState({ imageTranslation: data[0].class });
+    })
+    .catch((error) => {
+      console.log('fetchTranslation Error : ', error);
     })
   };
 
   render() {
     const { selectedLanguage } = this.state;
-    const { image } = this.state;
+    const { imagePreivew } = this.state;
+    const { imageTranslation } = this.state;
 
     return (
       <div id="components">
         <Language handleChange={this.handleLanguageSelection} />
         <InputImage
           selectedLanguage={selectedLanguage}
-          displayiImage={image}
+          displayiImage={imagePreivew}
           imageHandler={this.handleImageUpload}
         />
         <Translation
           selectedLanguage={selectedLanguage}
-          getText={this.postText}
+          getText={this.fetchTranslation}
+          translatedText={imageTranslation}
         />
       </div>
     );

@@ -24,15 +24,15 @@ class InputImage extends React.Component {
       <div id="image-component">
         <div className="submit-btn">
           <label
-            htmlFor="image-upload"
+            htmlFor = "image-upload"
           >
             {upload[selectedLanguage]}
           </label>
           <input
-            type='file'
-            id='image-upload'
-            onChange={imageHandler}
-            style={{display:'none'}}
+            type = 'file'
+            id = 'image-upload'
+            onChange = {imageHandler}
+            style = {{display:'none'}}
           />
         </div>
         <div className="image-preview-box">

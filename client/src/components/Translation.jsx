@@ -17,6 +17,7 @@ class Translation extends React.Component {
   render() {
     const { getText } = this.props;
     const { selectedLanguage } = this.props;
+    const { translatedText } = this.props;
     const { translate } = this.state;
 
     return (
@@ -24,7 +25,7 @@ class Translation extends React.Component {
         <button className="submit-btn" onClick={getText}>
           {translate[selectedLanguage]}
         </button>
-        <h1>This is hard coded text. Please change this later to reflect the returned translation from the database.</h1>
+        <h1>{translatedText}</h1>
       </div>
     );
   }
