@@ -10,8 +10,8 @@ class App extends React.Component {
     this.state = {
       selectedLanguage: 'SP',
       imagePreivew: '',
-      image: '',
-      imageClass: '',
+      imageData: '',
+      imageTranslation: '',
     };
     this.handleLanguageSelection = this.handleLanguageSelection.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
@@ -25,24 +25,23 @@ class App extends React.Component {
   };
 
   handleImageUpload(event) {
-    console.log('Uploaded Image Info : ', event.target.files[0])
-    // Display the selected image to the user
     this.setState({
-      image: event.target.files[0],
-      imagePreivew: URL.createObjectURL(event.target.files[0])
+      imageData: event.target.files[0],
+      imagePreivew: URL.createObjectURL(event.target.files[0]) // This is for displaying selected image to user
     });
   };
 
+
   fetchTranslation() {
-    const { image } = this.state;
+    const { imageData } = this.state;
+    const { imagePreivew } = this.state;
     const formData = new FormData();
-    formData.append('file', image);
-    console.log(formData); //
+    formData.append('file', imageData);
 
     axios.post('/api/test', formData)
     .then(({ data }) => {
-      console.log(data);
-      this.setState({ imageClass: data });
+      console.log(data[0].class);
+      this.setState({ imageTranslation: data[0].class });
     })
     .catch((error) => {
       console.log('fetchTranslation Error : ', error);
@@ -52,6 +51,7 @@ class App extends React.Component {
   render() {
     const { selectedLanguage } = this.state;
     const { imagePreivew } = this.state;
+    const { imageTranslation } = this.state;
 
     return (
       <div id="components">
@@ -64,6 +64,7 @@ class App extends React.Component {
         <Translation
           selectedLanguage={selectedLanguage}
           getText={this.fetchTranslation}
+          translatedText={imageTranslation}
         />
       </div>
     );
