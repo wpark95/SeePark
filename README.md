@@ -1,6 +1,6 @@
 # SeePark
 
-**SeePark** is an open source web application which utilizes image classification to translate parking signs for non-English speakers
+**SeePark** is an open source web application which utilizes image classification to translate traffic signs for non-English speakers
 
 
 ## Technologies
